@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{% block title %}index{% endblock %}</title>
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static 'coder/css/bootstrap.min.css' %}"/>
+    <script src="{% static 'coder/js/jquery.min.js' %}"></script>
+</head>
+<body style="background-color:">
+	
+		<nav class="navbar navbar-inverse"><!------Navigation------>
+		<div class="container-fluid">
+			<div class="navbar-header">
+			  <a class="navbar-brand" href="{% url 'coder:index' %}">TCH</a>
+			</div>
+
+		<ul class="nav navbar-nav">
+			<li><a href="{% url 'coder:index' %}"><span class="glyphicon glyphicon-home"></span> &nbsp;Home</a></li>
+		</ul>
+		  
+		  <form method='GET' action='' class="navbar-form navbar-right">
+			<div class="form-group">
+			  <input type="text" name='q' placeholder='Search' value='{{ request.GET.q }}' class="form-control"/>
+			</div>
+			<button type="submit" value='Search' class="btn btn-default"><span class="glyphicon glyphicon-arrow-right"></span></button>
+		  </form>
+
+		  
+		  <ul class="nav navbar-nav navbar-right">
+			<li><a href="{% url 'coder:about' %}">About</a></li>
+			<li><a href="{% url 'coder:contact' %}">Contact</a></li>
+			<li><a href="{% url 'coder:team' %}">Our Team</a></li>
+		  </ul>
+		</div>
+	</nav><!-----END of Navigation------->
+
+	
+	
+<div id="fb-root"></div>
+<script>
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+	
+	
+{% block body %}
+{% endblock %}
+<footer></footer>
+</body>
+</html>

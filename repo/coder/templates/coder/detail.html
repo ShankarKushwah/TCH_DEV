@@ -1,0 +1,20 @@
+{% extends 'coder/base.html' %}
+{% block body %}
+<div class="container">
+<div class="row">
+
+<h1>{{album.album_title}}</h1>
+
+
+	{% for news in album.news_set.all %}
+
+	<div class="col-md-4">
+	<h3>{{ news.news_title }}</h3>
+	<a href="{% url 'coder:story' news.id %}"><img src="{{news.news_file.url}}" height="300" width="250"></a>
+	</div>
+		{% endfor %}
+
+</div>
+</div>
+{% endblock %}
+
