@@ -10,7 +10,7 @@
 	{% for album in all_albums %}
 	
 		<div class="col-md-4">
-		<h3>{{ album.album_title }}</h3>  
+		<h3>{{ album.album_title }}</h3>
 		 <a href="{% url 'coder:detail' album.id %}"><img src="{{ album.album_logo.url }}" height="150" width="190" class="img-rounded"></a>
 		<h4>{{ album.genre }}</h4>
 		</div>

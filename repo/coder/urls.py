@@ -1,6 +1,6 @@
 from django.conf.urls import url
 from . import views
-
+from .views import HomeView
 app_name = 'coder'
 
 urlpatterns = [
@@ -11,5 +11,6 @@ urlpatterns = [
 	url(r'^about/$', views.about, name='about'),
 	url(r'^contact/$', views.contact, name='contact'),
 	url(r'^team/$', views.team, name='team'),
+	# url(r'^$', HomeView.as_view(), name='some'),
 
 ]

@@ -1,7 +1,19 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404
+from django.utils import timezone
+
 from .models import Album, News
 from django.db.models import Q
+from django.views.generic import CreateView, ListView, UpdateView, DeleteView
+
+
+class HomeView(ListView):
+    model = Album
+
+    def get_context_data(self, **kwargs):
+        context = super(HomeView, self).get_context_data()
+        context['now'] = timezone.now()
+        return context
 
 
 @login_required
