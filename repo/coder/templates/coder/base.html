@@ -9,7 +9,7 @@
     <script src="{% static 'coder/js/jquery.min.js' %}"></script>
 </head>
 <body style="background-color:">
-	
+	{% if request.user.is_authenticated %}
 		<nav class="navbar navbar-inverse"><!------Navigation------>
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -27,15 +27,22 @@
 			<button type="submit" value='Search' class="btn btn-default"><span class="glyphicon glyphicon-arrow-right"></span></button>
 		  </form>
 
-		  
 		  <ul class="nav navbar-nav navbar-right">
 			<li><a href="{% url 'coder:about' %}">About</a></li>
 			<li><a href="{% url 'coder:contact' %}">Contact</a></li>
 			<li><a href="{% url 'coder:team' %}">Our Team</a></li>
 		  </ul>
+			</div>
+	</nav>
+			{% else %}
+	<nav class="navbar navbar-inverse"><!------Navigation------>
+		<div class="container-fluid">
+		  <ul class="nav navbar-nav navbar-right">
+			<li><a href="{% url 'accounts:login' %}">Login</a></li>
+		  </ul>
 		</div>
 	</nav><!-----END of Navigation------->
-
+{% endif %}
 	
 	
 <div id="fb-root"></div>

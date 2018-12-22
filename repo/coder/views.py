@@ -8,15 +8,14 @@ from django.views.generic import CreateView, ListView, UpdateView, DeleteView
 
 
 class HomeView(ListView):
-    model = Album
+    model = Album, News
+    template_name = 'coder/index.html'
+    context_object_name = 'all_albums'
 
-    def get_context_data(self, **kwargs):
-        context = super(HomeView, self).get_context_data()
-        context['now'] = timezone.now()
-        return context
+    def get_queryset(self):
+        return Album.objects.all()
 
 
-@login_required
 def index(request):
     all_albums = Album.objects.all()
     news_results = News.objects.all()

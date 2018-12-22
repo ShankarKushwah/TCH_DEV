@@ -1,16 +1,16 @@
 from django.conf.urls import url
 from . import views
 from .views import HomeView
+
 app_name = 'coder'
 
 urlpatterns = [
-	
-	url(r'^$', views.index, name='index'),
-	url(r'^(?P<album_id>[0-9]+)/$', views.detail, name='detail'),
-	url(r'^post/(?P<news_id>[0-9]+)/$', views.story, name='story'),
-	url(r'^about/$', views.about, name='about'),
-	url(r'^contact/$', views.contact, name='contact'),
-	url(r'^team/$', views.team, name='team'),
-	# url(r'^$', HomeView.as_view(), name='some'),
+    url(r'^$', views.index, name='index'),
+    url(r'^(?P<album_id>[0-9]+)/$', views.detail, name='detail'),
+    url(r'^post/(?P<news_id>[0-9]+)/$', views.story, name='story'),
+    url(r'^about/$', views.about, name='about'),
+    url(r'^contact/$', views.contact, name='contact'),
+    url(r'^team/$', views.team, name='team'),
+    # url(r'^$', HomeView.as_view(), name='index'),
 
 ]
