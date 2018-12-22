@@ -10,7 +10,7 @@
 </head>
 <body style="background-color:">
 	{% if request.user.is_authenticated %}
-		<nav class="navbar navbar-inverse"><!------Navigation------>
+		<nav class="navbar navbar-inverse col-md-12"><!------Navigation------>
 		<div class="container-fluid">
 			<div class="navbar-header">
 			  <a class="navbar-brand" href="{% url 'coder:index' %}">TCH</a>
@@ -31,12 +31,16 @@
 			<li><a href="{% url 'coder:about' %}">About</a></li>
 			<li><a href="{% url 'coder:contact' %}">Contact</a></li>
 			<li><a href="{% url 'coder:team' %}">Our Team</a></li>
+			<li><a href="{% url 'accounts:logout' %}">Logout</a></li>
 		  </ul>
 			</div>
 	</nav>
 			{% else %}
-	<nav class="navbar navbar-inverse"><!------Navigation------>
+	<nav class="navbar navbar-inverse col-md-12"><!------Navigation------>
 		<div class="container-fluid">
+            <div class="navbar-header">
+			  <a class="navbar-brand" href="{% url 'coder:index' %}">TCH</a>
+			</div>
 		  <ul class="nav navbar-nav navbar-right">
 			<li><a href="{% url 'accounts:login' %}">Login</a></li>
 		  </ul>

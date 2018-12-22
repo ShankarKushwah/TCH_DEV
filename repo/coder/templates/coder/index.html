@@ -6,6 +6,7 @@
 <div class="container">
 <div class="row">
 
+	{% if user.is_authenticated %}
 
 	{% for album in all_albums %}
 	
@@ -15,6 +16,11 @@
 		<h4>{{ album.genre }}</h4>
 		</div>
 	{% endfor %}
+
+    {% else %}
+		<h3>Please login to access our content.</h3>
+    <p>Click <a href="{% url 'accounts:login' %}">here</a> to login</p>
+	{% endif %}
 
 </div>
 </div>
