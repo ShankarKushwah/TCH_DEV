@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
+from django.contrib.auth import get_user_model
 
 from .forms import SignupForm
 
+User = get_user_model()
 
 def signup(request):
     if request.method == "POST":
